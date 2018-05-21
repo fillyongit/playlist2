@@ -34,6 +34,8 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _songs_songs_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./songs/songs.component */ "./src/app/songs/songs.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,14 +43,18 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
+
+
+var routes = [
+    { path: ':lang/songs', component: _songs_songs_component__WEBPACK_IMPORTED_MODULE_2__["SongsComponent"] }
+];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [
-                CommonModule
-            ]
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -76,7 +82,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{title}}</h1>\r\n<app-songs></app-songs>"
+module.exports = "<h1>{{title}}</h1>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -297,7 +303,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Canzoni</h2>\r\n<ul class=\"songs\">\r\n  <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"hero === selectedHero\">\r\n    <span class=\"badge\">{{song.id}}</span> {{song.name}}\r\n  </li>\r\n</ul>\r\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
+module.exports = "<h2>Canzoni</h2>\n<ul class=\"songs\">\n  <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"hero === selectedHero\">\n    <span class=\"badge\">{{song.id}}</span> {{song.name}}\n  </li>\n</ul>\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
 
 /***/ }),
 
@@ -420,7 +426,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Alessio\Lavoro\playlist2\frontend\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/alessio/Documents/works/playlist2/frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

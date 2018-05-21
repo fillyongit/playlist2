@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { SongsComponent } from './songs/songs.component';
+
+const routes: Routes = [
+  { path: ':lang/songs', component: SongsComponent }
+];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

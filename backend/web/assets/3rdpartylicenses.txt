@@ -118,6 +118,10 @@ MIT
 MIT
 MIT
 
+@angular/router@6.0.1
+MIT
+MIT
+
 jquery@3.3.1
 MIT
 Copyright JS Foundation and other contributors, https://js.foundation/
