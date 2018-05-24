@@ -19,15 +19,13 @@ user_registration:
 admin:
     path: /admin
     defaults: { _controller: AppBundle:Default:admin }
-    
-homepage:
-    path:      /
-    defaults:  { _controller: AppBundle:Default:index }
-    
-homepage_locale:
-    path:      /%app.route_prefix%/
-    defaults:  { _controller: AppBundle:Default:index }
-        
+
+default_locale:
+    path:      /%app.route_prefix%/{what}/
+    defaults:  { _controller: AppBundle:Default:index}
+    requirements:
+       what: '\w+'
+
 list:
     path:      /list/{what}/{howMany}
     defaults:  { _controller: AppBundle:Default:list, what: '%app.list_default%', howMany: '%app.list_rows%' }
@@ -54,3 +52,7 @@ entity_save:
 live_search:
     path:      /livesearch/{what}
     defaults:  { _controller: AppBundle:Default:liveSearch }
+
+default:
+    path:      /
+    defaults:  { _controller: AppBundle:Default:index }

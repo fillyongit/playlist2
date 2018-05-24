@@ -82,7 +82,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{title}}</h1>\n<router-outlet></router-outlet>"
+module.exports = "<h1>{{title}}</h1>\r\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -303,7 +303,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Canzoni</h2>\n<ul class=\"songs\">\n  <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"hero === selectedHero\">\n    <span class=\"badge\">{{song.id}}</span> {{song.name}}\n  </li>\n</ul>\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
+module.exports = "<h2>Canzoni</h2>\r\n<ul class=\"songs\">\r\n  <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"hero === selectedHero\">\r\n    <span class=\"badge\">{{song.id}}</span> {{song.name}}\r\n  </li>\r\n</ul>\r\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
 
 /***/ }),
 
@@ -426,7 +426,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alessio/Documents/works/playlist2/frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Alessio\Lavoro\playlist2\frontend\src\main.ts */"./src/main.ts");
 
 
 /***/ })
