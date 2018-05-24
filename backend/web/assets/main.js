@@ -45,8 +45,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+// import { ArtistsComponent } from './artists/artists.component';
 var routes = [
     { path: ':lang/songs', component: _songs_songs_component__WEBPACK_IMPORTED_MODULE_2__["SongsComponent"] }
+    // , { path: ':lang/artists', component: ArtistsComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -196,17 +198,6 @@ var SONGS = [
 
 /***/ }),
 
-/***/ "./src/app/song-detail/song-detail.component.css":
-/*!*******************************************************!*\
-  !*** ./src/app/song-detail/song-detail.component.css ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/song-detail/song-detail.component.html":
 /*!********************************************************!*\
   !*** ./src/app/song-detail/song-detail.component.html ***!
@@ -215,6 +206,17 @@ module.exports = ""
 /***/ (function(module, exports) {
 
 module.exports = "<div *ngIf=\"song\">\n  <h2>{{ song.name | uppercase }} Details</h2>\n  <div><span>id: </span>{{song.id}}</div>\n  <div>\n    <label>name:\n      <input [(ngModel)]=\"song.name\" placeholder=\"name\">\n    </label>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/song-detail/song-detail.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/song-detail/song-detail.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
 
 /***/ }),
 
@@ -254,7 +256,7 @@ var SongDetailComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-song-detail',
             template: __webpack_require__(/*! ./song-detail.component.html */ "./src/app/song-detail/song-detail.component.html"),
-            styles: [__webpack_require__(/*! ./song-detail.component.css */ "./src/app/song-detail/song-detail.component.css")]
+            styles: [__webpack_require__(/*! ./song-detail.component.scss */ "./src/app/song-detail/song-detail.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], SongDetailComponent);
@@ -285,17 +287,6 @@ var Song = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/songs/songs.component.css":
-/*!*******************************************!*\
-  !*** ./src/app/songs/songs.component.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/songs/songs.component.html":
 /*!********************************************!*\
   !*** ./src/app/songs/songs.component.html ***!
@@ -303,7 +294,18 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Canzoni</h2>\r\n<ul class=\"songs\">\r\n  <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"hero === selectedHero\">\r\n    <span class=\"badge\">{{song.id}}</span> {{song.name}}\r\n  </li>\r\n</ul>\r\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
+module.exports = "<h2>Canzoni</h2>\r\n<ul class=\"songs\">\r\n  <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"song === selectedSong\">\r\n    <span class=\"badge\">{{song.id}}</span> {{song.name}}\r\n  </li>\r\n</ul>\r\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
+
+/***/ }),
+
+/***/ "./src/app/songs/songs.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/songs/songs.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
 
 /***/ }),
 
@@ -340,6 +342,7 @@ var SongsComponent = /** @class */ (function () {
         // this.songs = SONGS;
         // console.log(app.userIsAuthenticated);
         // console.log(jQuery);
+        // console.log(Translator.trans('title.songs'));
     };
     SongsComponent.prototype.onSelect = function (song) {
         this.selectedSong = song;
@@ -348,7 +351,7 @@ var SongsComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-songs',
             template: __webpack_require__(/*! ./songs.component.html */ "./src/app/songs/songs.component.html"),
-            styles: [__webpack_require__(/*! ./songs.component.css */ "./src/app/songs/songs.component.css")]
+            styles: [__webpack_require__(/*! ./songs.component.scss */ "./src/app/songs/songs.component.scss")]
         }),
         __metadata("design:paramtypes", [])
     ], SongsComponent);

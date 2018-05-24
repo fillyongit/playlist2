@@ -25,8 +25,8 @@
 		          Catalogo
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		          <a class="dropdown-item" href="/{{ app.request.getLocale() }}/songs">{% trans %}songs{% endtrans %}</a>
-		          <a class="dropdown-item" href="/{{ app.request.getLocale() }}/artists">{{ 'artists'|trans }}</a>
+		          <a class="dropdown-item" href="/{{ app.request.locale }}/songs">{% trans %}songs{% endtrans %}</a>
+		          <a class="dropdown-item" href="/{{ app.request.locale }}/artists">{{ 'artists'|trans }}</a>
 		          <div class="dropdown-divider"></div>
 		          <a class="dropdown-item" href="#">{% trans %}playlists{% endtrans %}</a>
 		        </div>

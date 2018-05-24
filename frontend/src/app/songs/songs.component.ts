@@ -6,7 +6,7 @@ import { SONGS } from '../mock-songs';
 @Component({
   selector: 'app-songs',
   templateUrl: './songs.component.html',
-  styleUrls: ['./songs.component.css']
+  styleUrls: ['./songs.component.scss']
 })
 export class SongsComponent implements OnInit {
 
@@ -22,6 +22,7 @@ export class SongsComponent implements OnInit {
   		// this.songs = SONGS;
   		// console.log(app.userIsAuthenticated);
       // console.log(jQuery);
+      // console.log(Translator.trans('title.songs'));
   	}
 
   	onSelect(song: Song): void {
