@@ -18,14 +18,13 @@ export class SongsComponent implements OnInit {
 
   	constructor(private windowService: WindowService) { 
       console.log(windowService.nativeWindow._app.saveUrl);
+      console.log(windowService.translator.trans('title.songs'));
   	}
 
   	ngOnInit() {
   		//console.log(SONGS);
   		// this.songs = SONGS;
-  		// console.log(window._app.saveUrl);
       // console.log(jQuery);
-      // console.log(Translator.trans('title.songs'));
   	}
 
   	onSelect(song: Song): void {

@@ -15,4 +15,8 @@ export class WindowService {
   get nativeWindow(): any {
     return _window();
   }
+
+   get translator(): any {
+    return _window().Translator;
+  }
 }

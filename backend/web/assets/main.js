@@ -350,13 +350,12 @@ var SongsComponent = /** @class */ (function () {
         this.windowService = windowService;
         this.songs = _mock_songs__WEBPACK_IMPORTED_MODULE_1__["SONGS"];
         console.log(windowService.nativeWindow._app.saveUrl);
+        console.log(windowService.translator.trans('title.songs'));
     }
     SongsComponent.prototype.ngOnInit = function () {
         //console.log(SONGS);
         // this.songs = SONGS;
-        // console.log(window._app.saveUrl);
         // console.log(jQuery);
-        // console.log(Translator.trans('title.songs'));
     };
     SongsComponent.prototype.onSelect = function (song) {
         this.selectedSong = song;
@@ -407,6 +406,13 @@ var WindowService = /** @class */ (function () {
     Object.defineProperty(WindowService.prototype, "nativeWindow", {
         get: function () {
             return _window();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WindowService.prototype, "translator", {
+        get: function () {
+            return _window().Translator;
         },
         enumerable: true,
         configurable: true
