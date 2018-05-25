@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Song } from '../song';
+import { WindowService } from '../window.service';
 
 @Component({
   selector: 'app-song-detail',
@@ -10,7 +11,8 @@ export class SongDetailComponent implements OnInit {
 
   @Input() song: Song;
   
-  constructor() { }
+  constructor(private windowService: WindowService) {
+  }
 
   ngOnInit() {
   }

@@ -99,15 +99,21 @@ module.exports = "<h1>{{title}}</h1>\r\n<router-outlet></router-outlet>"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _window_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./window.service */ "./src/app/window.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(windowService) {
+        this.windowService = windowService;
         this.title = 'app';
     }
     AppComponent = __decorate([
@@ -115,7 +121,8 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_window_service__WEBPACK_IMPORTED_MODULE_1__["WindowService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -232,6 +239,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SongDetailComponent", function() { return SongDetailComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _song__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../song */ "./src/app/song.ts");
+/* harmony import */ var _window_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../window.service */ "./src/app/window.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -243,8 +251,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var SongDetailComponent = /** @class */ (function () {
-    function SongDetailComponent() {
+    function SongDetailComponent(windowService) {
+        this.windowService = windowService;
     }
     SongDetailComponent.prototype.ngOnInit = function () {
     };
@@ -258,7 +268,7 @@ var SongDetailComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./song-detail.component.html */ "./src/app/song-detail/song-detail.component.html"),
             styles: [__webpack_require__(/*! ./song-detail.component.scss */ "./src/app/song-detail/song-detail.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_window_service__WEBPACK_IMPORTED_MODULE_2__["WindowService"]])
     ], SongDetailComponent);
     return SongDetailComponent;
 }());
@@ -321,6 +331,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SongsComponent", function() { return SongsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _mock_songs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mock-songs */ "./src/app/mock-songs.ts");
+/* harmony import */ var _window_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../window.service */ "./src/app/window.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -333,14 +344,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 // import { app } from '../namespace';
+
 var SongsComponent = /** @class */ (function () {
-    function SongsComponent() {
+    function SongsComponent(windowService) {
+        this.windowService = windowService;
         this.songs = _mock_songs__WEBPACK_IMPORTED_MODULE_1__["SONGS"];
+        console.log(windowService.nativeWindow._app.saveUrl);
     }
     SongsComponent.prototype.ngOnInit = function () {
         //console.log(SONGS);
         // this.songs = SONGS;
-        // console.log(app.userIsAuthenticated);
+        // console.log(window._app.saveUrl);
         // console.log(jQuery);
         // console.log(Translator.trans('title.songs'));
     };
@@ -353,9 +367,57 @@ var SongsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./songs.component.html */ "./src/app/songs/songs.component.html"),
             styles: [__webpack_require__(/*! ./songs.component.scss */ "./src/app/songs/songs.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_window_service__WEBPACK_IMPORTED_MODULE_2__["WindowService"]])
     ], SongsComponent);
     return SongsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/window.service.ts":
+/*!***********************************!*\
+  !*** ./src/app/window.service.ts ***!
+  \***********************************/
+/*! exports provided: WindowService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WindowService", function() { return WindowService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+function _window() {
+    // return the native window obj
+    return window;
+}
+var WindowService = /** @class */ (function () {
+    function WindowService() {
+    }
+    Object.defineProperty(WindowService.prototype, "nativeWindow", {
+        get: function () {
+            return _window();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    WindowService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], WindowService);
+    return WindowService;
 }());
 
 

@@ -3,6 +3,8 @@ import { Song } from '../song';
 import { SONGS } from '../mock-songs';
 // import { app } from '../namespace';
 
+import { WindowService } from '../window.service';
+
 @Component({
   selector: 'app-songs',
   templateUrl: './songs.component.html',
@@ -14,13 +16,14 @@ export class SongsComponent implements OnInit {
 
   	selectedSong: Song;
 
-  	constructor() { 
+  	constructor(private windowService: WindowService) { 
+      console.log(windowService.nativeWindow._app.saveUrl);
   	}
 
   	ngOnInit() {
   		//console.log(SONGS);
   		// this.songs = SONGS;
-  		// console.log(app.userIsAuthenticated);
+  		// console.log(window._app.saveUrl);
       // console.log(jQuery);
       // console.log(Translator.trans('title.songs'));
   	}
