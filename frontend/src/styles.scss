@@ -4,3 +4,36 @@
 @import '~bootstrap/scss/bootstrap-reboot';
 @import '~bootstrap/scss/bootstrap-grid';
 @import '~bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+body {
+	font-family: 'Varela Round', "Helvetica Neue", Helvetica, sans-serif;
+	/* background-color: $backgroundColor;
+	background: url('images/bck.jpg'); */
+}
+
+.container {
+	padding: 40px;
+	background-color: #fff;
+	margin-top: 0px;
+}
+
+.grid.header {
+	border-bottom: 2px solid #000;
+	font-size: 1.2em;
+}
+
+.row.grid {
+	height: 40px;
+	align-items: center;
+}
+
+.grid-buttons {
+	font-size: 1em;
+}
+/*
+.row:not(:last-child) {
+	border-bottom: 1px solid #000;
+}
+*/

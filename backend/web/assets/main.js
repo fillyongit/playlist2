@@ -73,7 +73,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{title}}</h1>\r\n<i class=\"fas fa-trash\"></i>\r\n<router-outlet></router-outlet>"
+module.exports = "<div class=\"container\">\r\n<router-outlet></router-outlet>\r\n</div>"
 
 /***/ }),
 
@@ -187,6 +187,50 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/localization.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/localization.service.ts ***!
+  \*****************************************/
+/*! exports provided: LocalizationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalizationService", function() { return LocalizationService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+function _window() {
+    // return the native window obj
+    return window;
+}
+var LocalizationService = /** @class */ (function () {
+    function LocalizationService() {
+    }
+    LocalizationService.prototype.trans = function (headword) {
+        return _window().Translator.trans(headword);
+    };
+    LocalizationService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], LocalizationService);
+    return LocalizationService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/mock-songs.ts":
 /*!*******************************!*\
   !*** ./src/app/mock-songs.ts ***!
@@ -277,6 +321,50 @@ var SongDetailComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/song.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/song.service.ts ***!
+  \*********************************/
+/*! exports provided: SongService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SongService", function() { return SongService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _mock_songs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mock-songs */ "./src/app/mock-songs.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SongService = /** @class */ (function () {
+    function SongService() {
+    }
+    SongService.prototype.getSongs = function () {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(_mock_songs__WEBPACK_IMPORTED_MODULE_1__["SONGS"]);
+    };
+    SongService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SongService);
+    return SongService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/song.ts":
 /*!*************************!*\
   !*** ./src/app/song.ts ***!
@@ -304,7 +392,7 @@ var Song = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Canzoni</h2>\r\n<ul class=\"songs\">\r\n  <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"song === selectedSong\">\r\n    <span class=\"badge\">{{song.id}}</span> {{song.name}}\r\n  </li>\r\n</ul>\r\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
+module.exports = "<h2>{{ localization.trans('title.songs')}}</h2>\r\n<div class=\"row grid header\">\r\n\t<div class=\"col-6\">\r\n\t  {{ localization.trans('grid.name') }}\r\n\t</div>\r\n\t<div class=\"col-4\">\r\n\t</div>  \r\n\t<div class=\"col-2\"></div>\t\r\n</div>\r\n<div class=\"row grid\" *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"song === selectedSong\">\r\n\t<div class=\"col-6\">\r\n\t  {{ song.name }}\r\n\t</div>\r\n\t<div class=\"col-4\">\r\n\t</div>\r\n\t<div class=\"col-2\">\r\n\t\t<i class=\"fas fa-trash\"></i>\r\n\t</div>\r\n</div>\r\n<app-song-detail [song]=\"selectedSong\"></app-song-detail>"
 
 /***/ }),
 
@@ -330,8 +418,9 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SongsComponent", function() { return SongsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _mock_songs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mock-songs */ "./src/app/mock-songs.ts");
+/* harmony import */ var _song_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../song.service */ "./src/app/song.service.ts");
 /* harmony import */ var _window_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../window.service */ "./src/app/window.service.ts");
+/* harmony import */ var _localization_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../localization.service */ "./src/app/localization.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -343,22 +432,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-// import { app } from '../namespace';
+
 
 var SongsComponent = /** @class */ (function () {
-    function SongsComponent(windowService) {
+    function SongsComponent(windowService, localization, songService) {
         this.windowService = windowService;
-        this.songs = _mock_songs__WEBPACK_IMPORTED_MODULE_1__["SONGS"];
+        this.localization = localization;
+        this.songService = songService;
         console.log(windowService.nativeWindow._app.saveUrl);
-        console.log(windowService.translator.trans('title.songs'));
     }
     SongsComponent.prototype.ngOnInit = function () {
-        //console.log(SONGS);
-        // this.songs = SONGS;
         // console.log(jQuery);
+        this.getSongs();
     };
     SongsComponent.prototype.onSelect = function (song) {
         this.selectedSong = song;
+    };
+    SongsComponent.prototype.getSongs = function () {
+        var _this = this;
+        this.songService.getSongs().subscribe(function (songs) { return _this.songs = songs; });
     };
     SongsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -366,7 +458,9 @@ var SongsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./songs.component.html */ "./src/app/songs/songs.component.html"),
             styles: [__webpack_require__(/*! ./songs.component.scss */ "./src/app/songs/songs.component.scss")]
         }),
-        __metadata("design:paramtypes", [_window_service__WEBPACK_IMPORTED_MODULE_2__["WindowService"]])
+        __metadata("design:paramtypes", [_window_service__WEBPACK_IMPORTED_MODULE_2__["WindowService"],
+            _localization_service__WEBPACK_IMPORTED_MODULE_3__["LocalizationService"],
+            _song_service__WEBPACK_IMPORTED_MODULE_1__["SongService"]])
     ], SongsComponent);
     return SongsComponent;
 }());
