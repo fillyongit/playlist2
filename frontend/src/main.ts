@@ -10,6 +10,8 @@ window['jQuery'] = window['$'] = jquery;
 import * as popper from 'popper.js';
 window['Popper'] = popper;
 
+import Translator from 'bazinga-translator';
+
 import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 

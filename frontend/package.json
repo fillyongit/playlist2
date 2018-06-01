@@ -26,6 +26,7 @@
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "bazinga-translator": "^2.6.6",
     "bootstrap": "^4.1.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",

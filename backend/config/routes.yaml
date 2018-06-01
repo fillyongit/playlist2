@@ -1,0 +1,66 @@
+_bazinga_jstranslation:
+    resource: "@BazingaJsTranslationBundle/Resources/config/routing/routing.yml"
+
+login:
+    path:      /login
+    controller: App\Controller\SecurityController::login
+ 
+logout:
+    path:      /logout
+    
+user_registration:
+    path:      /register
+    controller: App\Controller\SecurityController::register
+    
+admin:
+    path: /admin
+    controller: App\Controller\DefaultController::admin
+
+default_locale:
+    path:      /%app.route_prefix%/{what}/
+    controller: App\Controller\DefaultController::index
+    requirements:
+       what: '\w+'
+
+list:
+    path:      /list/{what}/{howMany}
+    controller: App\Controller\DefaultController::list
+    defaults:
+       what: '%app.list_default%'
+       howMany: '%app.list_rows%'
+    requirements:
+        howMany: '\d+'
+        
+list_locale:
+    path:      /%app.route_prefix%/list/{what}/{howMany}
+    controller: App\Controller\DefaultController::list
+    defaults:
+       what: '%app.list_default%'
+       howMany: '%app.list_rows%'
+    requirements:
+       howMany: '\d+'
+       _locale: '%app.locales%'
+       
+entity_locale:
+    path:      /%app.route_prefix%/entity/{what}/{id}
+    controller: App\Controller\DefaultController::entity
+    defaults:
+       what: '%app.list_default%'
+       id: '0'
+    requirements:
+       _locale: '%app.locales%'
+       
+entity_save:
+    path:      /save/{what}/{id}
+    controller: App\Controller\DefaultController::saveEntity
+    defaults:
+       what: '%app.list_default%'
+       id: '0'
+    
+live_search:
+    path:      /livesearch/{what}
+    controller: App\Controller\DefaultController::liveSearch
+
+default:
+    path:      /
+    controller: App\Controller\DefaultController::index
