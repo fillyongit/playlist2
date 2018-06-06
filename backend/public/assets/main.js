@@ -223,18 +223,15 @@ var ArtistService = /** @class */ (function () {
     ArtistService.prototype.getArtists = function () {
         // return of(ARTISTS).pipe(tap(data => console.log(data));
         var url = this.configService.getParam('listUrl').replace(/__what__/, 'artists');
-        return this.http.get(url, { withCredentials: true, responseType: 'json' }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (data) { console.log(data); }), 
-        /*
-        map((res) => {
-            console.log(res);
+        // this.http.get(), senza specificare il tipo restituito, restituisce un Observable<Objec>
+        return this.http.get(url, { withCredentials: true, responseType: 'json' }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (data) { }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) {
             // Converto la response che è un'array di stringhe json, in un'array di oggetti.
-            let data = [];
-            res.forEach((el, i) => {
-                data[i] = JSON.parse(el);
-            });
+            var data = [];
+            for (var i in res) {
+                data[i] = JSON.parse(res[i]);
+            }
             return data;
-        }),*/
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('getArtists', [])));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('getArtists', [])));
     };
     ArtistService.prototype.handleError = function (operation, result) {
         if (operation === void 0) { operation = 'operation'; }
