@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WindowService } from './window.service';
+import { ConfigService } from './config.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,6 @@ import { WindowService } from './window.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  	title = 'app';
 
-    constructor(private windowService: WindowService) { 
-  	}
+    constructor(private configService: ConfigService) {}
 }

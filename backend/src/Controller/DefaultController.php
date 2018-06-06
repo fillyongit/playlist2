@@ -66,18 +66,21 @@ class DefaultController extends Controller
 
     	// print $this->getParameter('database_name');
 
-    	$data = $model->getCollection('App:Artist');
+    	$collection = $model->getCollection('App:Artist');
+    	foreach($collection as $row) {
+    	    // Ogni $row è un oggetto di tipo AbstractEntity
+    	    // che implementa l'interfaccia JsonSerializable e implementa
+    	    // il metodo jsonSerialize.
+    	    $data[] = json_encode($row);
+    	}
+    	return $this->json($data);
 
     	// replace this example code with whatever you need
-    	return $this->render('default/'.$what.'.html.twig', [
-    		'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-    		'title' => $this->translator->trans('title.'.$what),
-    		'data' => $data
-//     		, 'entries' => array(
-//     				array('key' => 'locale', 'value' => $request->getLocale()),
-//     				array('key' => 'title.albums_list', 'value' => $this->translator->trans('title.albums_list'))
-//     		)
-    	]);
+//     	return $this->render('default/'.$what.'.html.twig', [
+//     		'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+//     		// 'title' => $this->translator->trans('title.'.$what),
+//     		// 'data' => $data
+//     	]);
     }
     
     public function entity(Model $model, $what, $id) {
@@ -108,7 +111,7 @@ class DefaultController extends Controller
     	if ($this->isCsrfTokenValid('grid', $request->request->get('token'))) {
     		$collection = $model->getCollection('App:Record', $request->request->get('search'));
     		foreach($collection as $row) {
-    			// Ogni $row Ã¨ un oggetto di tipo AbstractEntity 
+    			// Ogni $row è un oggetto di tipo AbstractEntity 
     			// che implementa l'interfaccia JsonSerializable e implementa
     			// il metodo jsonSerialize.
     		    $data[] = json_encode($row);

@@ -1,0 +1,20 @@
+<h2>{{ localization.trans('title.artists')}}</h2>
+<div class="row grid header">
+	<div class="col-6">
+	  {{ localization.trans('grid.name') }}
+	</div>
+	<div class="col-4">
+	</div>  
+	<div class="col-2"></div>	
+</div>
+<div class="row grid" *ngFor="let artist of artists" (click)="onSelect(artist)" [class.selected]="artist === selectedArtist">
+	<div class="col-6">
+	  {{ artist.name }}
+	</div>
+	<div class="col-4">
+	  {{ artist.prova }}
+	</div>
+	<div class="col-2">
+		<i class="fas fa-trash"></i>
+	</div>
+</div>

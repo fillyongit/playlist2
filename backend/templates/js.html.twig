@@ -2,6 +2,7 @@
  	// I placeholder __[qualcosa]__ verranno sostituiti nei jsx.
  	const _app = {};
 	_app.liveSearchUrl = "{{ path('live_search', {'what': '__what__' }) }}";
+	_app.listUrl = "{{ path('list_locale', {'what': '__what__'}) }}";
 	_app.entityUrl = "{{ path('entity_locale', {'what': '__what__', id: '__id__'}) }}";
 	_app.saveUrl = "{{ path('entity_save', {'what': '__what__', id: '__id__'}) }}" ;
 	_app.userIsAuthenticated = "{{ is_granted('IS_AUTHENTICATED_REMEMBERED') }}";

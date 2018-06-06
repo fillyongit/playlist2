@@ -23,7 +23,7 @@ default_locale:
        what: '\w+'
 
 list:
-    path:      /list/{what}/{howMany}
+    path:      /api/list/{what}/{howMany}
     controller: App\Controller\DefaultController::list
     defaults:
        what: '%app.list_default%'
@@ -32,7 +32,7 @@ list:
         howMany: '\d+'
         
 list_locale:
-    path:      /%app.route_prefix%/list/{what}/{howMany}
+    path:      /%app.route_prefix%/api/list/{what}/{howMany}
     controller: App\Controller\DefaultController::list
     defaults:
        what: '%app.list_default%'
@@ -42,7 +42,7 @@ list_locale:
        _locale: '%app.locales%'
        
 entity_locale:
-    path:      /%app.route_prefix%/entity/{what}/{id}
+    path:      /%app.route_prefix%/api/entity/{what}/{id}
     controller: App\Controller\DefaultController::entity
     defaults:
        what: '%app.list_default%'
@@ -51,7 +51,7 @@ entity_locale:
        _locale: '%app.locales%'
        
 entity_save:
-    path:      /save/{what}/{id}
+    path:      /api/save/{what}/{id}
     controller: App\Controller\DefaultController::saveEntity
     defaults:
        what: '%app.list_default%'
