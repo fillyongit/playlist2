@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    ArtistDetailComponent
   ],
   imports: [
     BrowserModule,

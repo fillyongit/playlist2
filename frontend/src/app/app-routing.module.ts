@@ -4,8 +4,10 @@ import { ArtistsComponent } from './artists/artists.component';
 // import { ArtistsComponent } from './artists/artists.component';
 
 const routes: Routes = [
-  { path: ':lang/artists', component: ArtistsComponent }
+  { path: 'artists', component: ArtistsComponent }
+  // { path: ':lang/artists', component: ArtistsComponent }
   // , { path: ':lang/artists', component: ArtistsComponent }
+  // , { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

@@ -1,3 +1,3 @@
-export class Artist {
-  id: number;
-}
+import { Entity } from './entity';
+
+export class Artist extends Entity { }

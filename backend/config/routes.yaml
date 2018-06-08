@@ -16,6 +16,16 @@ admin:
     path: /admin
     controller: App\Controller\DefaultController::admin
 
+homepage:
+    path:      /
+    controller: App\Controller\DefaultController::index
+       
+default:
+    path:      /{what}/
+    controller: App\Controller\DefaultController::index
+    requirements:
+       what: '\w+'
+       
 default_locale:
     path:      /%app.route_prefix%/{what}/
     controller: App\Controller\DefaultController::index
@@ -40,7 +50,14 @@ list_locale:
     requirements:
        howMany: '\d+'
        _locale: '%app.locales%'
-       
+   
+entity:
+    path:	/api/entity/{what}/{id}
+    controller: App\Controller\DefaultController::entity
+    defaults:
+       what: '%app.list_default%'
+       id: '0'
+           
 entity_locale:
     path:      /%app.route_prefix%/api/entity/{what}/{id}
     controller: App\Controller\DefaultController::entity
@@ -60,7 +77,3 @@ entity_save:
 live_search:
     path:      /livesearch/{what}
     controller: App\Controller\DefaultController::liveSearch
-
-default:
-    path:      /
-    controller: App\Controller\DefaultController::index

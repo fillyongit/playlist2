@@ -47,8 +47,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 // import { ArtistsComponent } from './artists/artists.component';
 var routes = [
-    { path: ':lang/artists', component: _artists_artists_component__WEBPACK_IMPORTED_MODULE_2__["ArtistsComponent"] }
+    { path: 'artists', component: _artists_artists_component__WEBPACK_IMPORTED_MODULE_2__["ArtistsComponent"] }
+    // { path: ':lang/artists', component: ArtistsComponent }
     // , { path: ':lang/artists', component: ArtistsComponent }
+    // , { path: '**', component: PageNotFoundComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -147,12 +149,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _artists_artists_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artists/artists.component */ "./src/app/artists/artists.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _artist_detail_artist_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./artist-detail/artist-detail.component */ "./src/app/artist-detail/artist-detail.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -167,7 +171,8 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _artists_artists_component__WEBPACK_IMPORTED_MODULE_5__["ArtistsComponent"]
+                _artists_artists_component__WEBPACK_IMPORTED_MODULE_5__["ArtistsComponent"],
+                _artist_detail_artist_detail_component__WEBPACK_IMPORTED_MODULE_7__["ArtistDetailComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -186,6 +191,75 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/artist-detail/artist-detail.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/artist-detail/artist-detail.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"artist\">\n  <h2>{{ artist.name | uppercase }} Details</h2>\n  <div><span>id: </span>{{artist.id}}</div>\n  <div>\n    <label>name:\n      <input [(ngModel)]=\"artist.name\" placeholder=\"name\"/>\n    </label>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/artist-detail/artist-detail.component.scss":
+/*!************************************************************!*\
+  !*** ./src/app/artist-detail/artist-detail.component.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/artist-detail/artist-detail.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/artist-detail/artist-detail.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ArtistDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArtistDetailComponent", function() { return ArtistDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _artist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../artist */ "./src/app/artist.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ArtistDetailComponent = /** @class */ (function () {
+    function ArtistDetailComponent() {
+    }
+    ArtistDetailComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _artist__WEBPACK_IMPORTED_MODULE_1__["Artist"])
+    ], ArtistDetailComponent.prototype, "artist", void 0);
+    ArtistDetailComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-artist-detail',
+            template: __webpack_require__(/*! ./artist-detail.component.html */ "./src/app/artist-detail/artist-detail.component.html"),
+            styles: [__webpack_require__(/*! ./artist-detail.component.scss */ "./src/app/artist-detail/artist-detail.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ArtistDetailComponent);
+    return ArtistDetailComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/artist.service.ts":
 /*!***********************************!*\
   !*** ./src/app/artist.service.ts ***!
@@ -197,10 +271,8 @@ var AppModule = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArtistService", function() { return ArtistService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config.service */ "./src/app/config.service.ts");
+/* harmony import */ var _entity_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entity.service */ "./src/app/entity.service.ts");
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config.service */ "./src/app/config.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -213,42 +285,57 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
-
 var ArtistService = /** @class */ (function () {
-    function ArtistService(http, configService) {
-        this.http = http;
+    function ArtistService(configService, entityService) {
         this.configService = configService;
+        this.entityService = entityService;
     }
     ArtistService.prototype.getArtists = function () {
-        // return of(ARTISTS).pipe(tap(data => console.log(data));
-        var url = this.configService.getParam('listUrl').replace(/__what__/, 'artists');
-        // this.http.get(), senza specificare il tipo restituito, restituisce un Observable<Objec>
-        return this.http.get(url, { withCredentials: true, responseType: 'json' }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (data) { }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) {
-            // Converto la response che è un'array di stringhe json, in un'array di oggetti.
-            var data = [];
-            for (var i in res) {
-                data[i] = JSON.parse(res[i]);
-            }
-            return data;
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('getArtists', [])));
-    };
-    ArtistService.prototype.handleError = function (operation, result) {
-        if (operation === void 0) { operation = 'operation'; }
-        return function (error) {
-            console.error(error);
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(result);
-        };
+        return this.entityService.getEntities('artists');
     };
     ArtistService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            _config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]])
+        __metadata("design:paramtypes", [_config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"],
+            _entity_service__WEBPACK_IMPORTED_MODULE_1__["EntityService"]])
     ], ArtistService);
     return ArtistService;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/app/artist.ts":
+/*!***************************!*\
+  !*** ./src/app/artist.ts ***!
+  \***************************/
+/*! exports provided: Artist */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Artist", function() { return Artist; });
+/* harmony import */ var _entity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./entity */ "./src/app/entity.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var Artist = /** @class */ (function (_super) {
+    __extends(Artist, _super);
+    function Artist() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Artist;
+}(_entity__WEBPACK_IMPORTED_MODULE_0__["Entity"]));
 
 
 
@@ -261,7 +348,7 @@ var ArtistService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>{{ localization.trans('title.artists')}}</h2>\r\n<div class=\"row grid header\">\r\n\t<div class=\"col-6\">\r\n\t  {{ localization.trans('grid.name') }}\r\n\t</div>\r\n\t<div class=\"col-4\">\r\n\t</div>  \r\n\t<div class=\"col-2\"></div>\t\r\n</div>\r\n<div class=\"row grid\" *ngFor=\"let artist of artists\" (click)=\"onSelect(artist)\" [class.selected]=\"artist === selectedArtist\">\r\n\t<div class=\"col-6\">\r\n\t  {{ artist.name }}\r\n\t</div>\r\n\t<div class=\"col-4\">\r\n\t  {{ artist.prova }}\r\n\t</div>\r\n\t<div class=\"col-2\">\r\n\t\t<i class=\"fas fa-trash\"></i>\r\n\t</div>\r\n</div>"
+module.exports = "<h2>{{ localization.trans('title.artists')}}</h2>\r\n<div class=\"row grid header\">\r\n\t<div class=\"col-6\">\r\n\t  {{ localization.trans('grid.name') }}\r\n\t</div>\r\n\t<div class=\"col-4\">\r\n\t</div>  \r\n\t<div class=\"col-2\"></div>\t\r\n</div>\r\n<div class=\"row grid\" *ngFor=\"let artist of artists\" (click)=\"onSelect(artist)\" [class.selected]=\"artist === selectedArtist\">\r\n\t<div class=\"col-6\">\r\n\t  {{ artist.name }}\r\n\t</div>\r\n\t<div class=\"col-4\">\r\n\t  {{ artist.prova }}\r\n\t</div>\r\n\t<div class=\"col-2\">\r\n\t\t<i class=\"fas fa-trash\"></i>\r\n\t</div>\r\n</div>\r\n<app-artist-detail [artist]=\"selectedArtist\"></app-artist-detail>"
 
 /***/ }),
 
@@ -412,6 +499,95 @@ __webpack_require__.r(__webpack_exports__);
 var config = {
     env: 'dev'
 };
+
+
+/***/ }),
+
+/***/ "./src/app/entity.service.ts":
+/*!***********************************!*\
+  !*** ./src/app/entity.service.ts ***!
+  \***********************************/
+/*! exports provided: EntityService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EntityService", function() { return EntityService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config.service */ "./src/app/config.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EntityService = /** @class */ (function () {
+    function EntityService(http, configService) {
+        this.http = http;
+        this.configService = configService;
+    }
+    EntityService.prototype.getEntities = function (what) {
+        // return of(ARTISTS).pipe(tap(data => console.log(data));
+        var url = this.configService.getParam('listUrl').replace(/__what__/, what);
+        // this.http.get(), senza specificare il tipo restituito, restituisce un Observable<Objec>
+        return this.http.get(url, { withCredentials: true, responseType: 'json' }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (data) { }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) {
+            // Converto la response che è un'object di stringhe json, in un'array di oggetti.
+            // res è un oggetto non un array in senso stretto.
+            var data = [];
+            for (var i in res) {
+                data[i] = JSON.parse(res[i]);
+            }
+            return data;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('getEntities', [])));
+    };
+    EntityService.prototype.handleError = function (operation, result) {
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            console.error(error);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(result);
+        };
+    };
+    EntityService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]])
+    ], EntityService);
+    return EntityService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entity.ts":
+/*!***************************!*\
+  !*** ./src/app/entity.ts ***!
+  \***************************/
+/*! exports provided: Entity */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Entity", function() { return Entity; });
+var Entity = /** @class */ (function () {
+    function Entity() {
+    }
+    return Entity;
+}());
+
 
 
 /***/ }),
