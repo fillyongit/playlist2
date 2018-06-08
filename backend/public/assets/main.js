@@ -198,7 +198,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"artist\">\n  <h2>{{ artist.name | uppercase }} Details</h2>\n  <div><span>id: </span>{{artist.id}}</div>\n  <div>\n    <label>name:\n      <input [(ngModel)]=\"artist.name\" placeholder=\"name\"/>\n    </label>\n  </div>\n</div>"
+module.exports = "<div *ngIf=\"artist\">\n  <h2>{{ artist.name | uppercase }} Details</h2>\n  <div><span>id: </span>{{artist.id}}</div>\n  <div>\n    <label>{{ localization.trans('entity.name') }}:\n      <input [(ngModel)]=\"artist.name\" placeholder=\"name\"/>\n    </label>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -225,6 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArtistDetailComponent", function() { return ArtistDetailComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _artist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../artist */ "./src/app/artist.ts");
+/* harmony import */ var _localization_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../localization.service */ "./src/app/localization.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -236,8 +237,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ArtistDetailComponent = /** @class */ (function () {
-    function ArtistDetailComponent() {
+    function ArtistDetailComponent(localization) {
+        this.localization = localization;
     }
     ArtistDetailComponent.prototype.ngOnInit = function () {
     };
@@ -251,7 +254,7 @@ var ArtistDetailComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./artist-detail.component.html */ "./src/app/artist-detail/artist-detail.component.html"),
             styles: [__webpack_require__(/*! ./artist-detail.component.scss */ "./src/app/artist-detail/artist-detail.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_localization_service__WEBPACK_IMPORTED_MODULE_2__["LocalizationService"]])
     ], ArtistDetailComponent);
     return ArtistDetailComponent;
 }());
