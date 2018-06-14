@@ -8,5 +8,6 @@
 	_app.userIsAuthenticated = "{{ is_granted('IS_AUTHENTICATED_REMEMBERED') }}";
 	_app.userIsAdmin = "{{ is_granted('ROLE_ADMIN') }}";
 	_app.userIsEditor = "{{ is_granted('ROLE_EDIT') }}";
+	_app.authToken = "{{ app.session.id }}";
 	window._app = _app;
  </script>

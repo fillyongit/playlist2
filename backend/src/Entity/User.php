@@ -2,14 +2,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements AdvancedUserInterface, \Serializable
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Column(type="integer")
@@ -120,46 +120,6 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function eraseCredentials()
     {
-    }
-    
-    /**
-     * 
-     * {@inheritDoc}
-     * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isAccountNonExpired()
-     */
-    public function isAccountNonExpired()
-    {
-        return true;
-    }
-    
-    /**
-     * 
-     * {@inheritDoc}
-     * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isAccountNonLocked()
-     */
-    public function isAccountNonLocked()
-    {
-        return true;
-    }
-    
-    /**
-     * 
-     * {@inheritDoc}
-     * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isCredentialsNonExpired()
-     */
-    public function isCredentialsNonExpired()
-    {
-        return true;
-    }
-    
-    /**
-     * 
-     * {@inheritDoc}
-     * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isEnabled()
-     */
-    public function isEnabled()
-    {
-        return $this->isActive;
     }
     
     /** @see \Serializable::serialize() */

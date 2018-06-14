@@ -19,15 +19,18 @@ export class EntityService {
   	// return of(ARTISTS).pipe(tap(data => console.log(data));
   	const url = this.configService.getParam('listUrl').replace(/__what__/, what);
   	// this.http.get(), senza specificare il tipo restituito, restituisce un Observable<Objec>
-  	return this.http.get(url, { withCredentials: true, responseType: 'json' }).pipe(
+  	return this.http.get(url, { 
+      withCredentials: true, 
+      observe: 'response'
+    }).pipe(
   		tap(data => {}),
   		map((res) => {
-            
             // Converto la response che è un'object di stringhe json, in un'array di oggetti.
             // res è un oggetto non un array in senso stretto.
             let data = []; 
-            for (let i in res) {
-            	data[i] = JSON.parse(res[i]);
+            let resultset = res.body;
+            for (let i in resultset) {
+            	data[i] = <Entity> JSON.parse(resultset[i]);
             }
             
         	return data;

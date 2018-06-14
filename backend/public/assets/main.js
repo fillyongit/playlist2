@@ -544,12 +544,16 @@ var EntityService = /** @class */ (function () {
         // return of(ARTISTS).pipe(tap(data => console.log(data));
         var url = this.configService.getParam('listUrl').replace(/__what__/, what);
         // this.http.get(), senza specificare il tipo restituito, restituisce un Observable<Objec>
-        return this.http.get(url, { withCredentials: true, responseType: 'json' }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (data) { }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) {
+        return this.http.get(url, {
+            withCredentials: true,
+            observe: 'response'
+        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (data) { }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) {
             // Converto la response che è un'object di stringhe json, in un'array di oggetti.
             // res è un oggetto non un array in senso stretto.
             var data = [];
-            for (var i in res) {
-                data[i] = JSON.parse(res[i]);
+            var resultset = res.body;
+            for (var i in resultset) {
+                data[i] = JSON.parse(resultset[i]);
             }
             return data;
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('getEntities', [])));
